@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { SearchInput } from '@/components/molecules/SearchInput/SearchInput'
 import { TrendingTerms } from '@/components/organisms/TrendingTerms/TrendingTerms'
+import { GiftResults } from '@/components/organisms/GifResults/GifResults'
 
 function App() {
     const [searchValue, setSearchValue] = useState('')
@@ -19,6 +20,7 @@ function App() {
                 />
                 <TrendingTerms onTermSelect={setSearchValue} />
             </div>
+            <GiftResults searchValue={searchValue} />
         </main>
     )
 }

@@ -38,7 +38,17 @@ it('renders with correct elements when error', () => {
 })
 
 it('renders with correct elements when data is present, calls `onTermSelect` with correct value', async () => {
-    const testData = ['test1', 'test2', 'test3']
+    const testData = [
+        'test1',
+        'test2',
+        'test3',
+        'test4',
+        'test5',
+        'test6',
+        'test7',
+        'test8',
+        'test9',
+    ]
     const onTermSelect = vi.fn()
     const user = userEvent.setup()
     render(
@@ -55,7 +65,7 @@ it('renders with correct elements when data is present, calls `onTermSelect` wit
     expect(
         screen.queryByText(/Sorry, something went wrong/i)
     ).not.toBeInTheDocument()
-    expect(screen.queryAllByRole('button')).toHaveLength(3)
+    expect(screen.queryAllByRole('button')).toHaveLength(8)
 
     await user.click(screen.getByRole('button', { name: testData[0] }))
 
