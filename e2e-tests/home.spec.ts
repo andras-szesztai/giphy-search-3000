@@ -1,5 +1,15 @@
 import { test, expect } from '@playwright/test'
 
+import { trendingTerms } from './mock/data'
+
+test.beforeEach(async ({ page }) => {
+    await page.route('**/trending/searches?*', (route) =>
+        route.fulfill({
+            body: JSON.stringify({ data: trendingTerms }),
+        })
+    )
+})
+
 test('Page has correct elements when app mounts', async ({ page }) => {
     await page.goto('/')
 
@@ -24,4 +34,14 @@ test('Page has correct elements when app mounts', async ({ page }) => {
     await expect(
         page.getByPlaceholder('Search all the GIFs there is...')
     ).toHaveValue('')
+
+    await expect(
+        page.getByTestId('trending-terms-container').getByRole('button')
+    ).toHaveCount(trendingTerms.length)
+
+    await page.getByRole('button', { name: trendingTerms[0] }).click()
+
+    await expect(
+        page.getByPlaceholder('Search all the GIFs there is...')
+    ).toHaveValue(trendingTerms[0])
 })

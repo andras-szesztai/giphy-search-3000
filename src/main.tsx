@@ -9,6 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <SWRConfig
             value={{
+                revalidateOnFocus: false,
                 fetcher: (resource, init) =>
                     fetch(
                         `https://${
