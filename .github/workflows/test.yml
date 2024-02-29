@@ -29,7 +29,7 @@ jobs:
               run: npm test
 
     e2e_test:
-        name: E2e Test Job
+        name: E2E Test Job
         timeout-minutes: 60
         runs-on: ubuntu-latest
         steps:
