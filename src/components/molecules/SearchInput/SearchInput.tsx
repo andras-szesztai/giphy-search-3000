@@ -4,7 +4,7 @@ type SearchInputProps = {
 }
 
 export const SearchInput = ({ value, onChange }: SearchInputProps) => (
-    <div className="flex w-full md:w-1/2">
+    <div className="flex w-full">
         <input
             className="flex-1 px-4 py-4 text-lg font-light rounded-l md:py-5 md:text-xl focus-visible:outline-none placeholder:text-black"
             placeholder="Search all the GIFs there is..."
