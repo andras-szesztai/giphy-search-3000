@@ -1,3 +1,5 @@
+import { RequestFeedbackProps } from '@/components/atoms/RequestFeedback/RequestFeedback'
+
 export type GifResponse = {
     id: string
     images: {
@@ -14,6 +16,4 @@ export type GifResultsProps = {
 
 export type GifResultsContentProps = {
     data: GifResponse | undefined
-    isLoading: boolean
-    isError: boolean
-}
+} & Omit<RequestFeedbackProps, 'className'>

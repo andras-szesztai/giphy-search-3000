@@ -5,7 +5,7 @@ import { GifResponse, GifResultsContentProps, GifResultsProps } from './types'
 import { getColumns } from './utils'
 
 import { API_KEY_PARAM } from '@/constants/request'
-import { cn } from '@/utils/styles'
+import { RequestFeedback } from '@/components/atoms/RequestFeedback/RequestFeedback'
 
 export const GifResultsContent = ({
     data,
@@ -16,19 +16,13 @@ export const GifResultsContent = ({
         className="grid flex-1 w-full grid-cols-2 gap-2 overflow-y-auto md:gap-4 md:grid-cols-4"
         data-testid="gif-results-container"
     >
-        {isLoading || isError ? (
-            <div className="flex justify-center w-full col-span-2 md:col-span-4">
-                <p
-                    className={cn('font-light text-picton-blue-500', {
-                        'text-carnation-400': isError,
-                    })}
-                >
-                    {isError
-                        ? 'Sorry, something went wrong while trying to fetch gifs'
-                        : 'Loading...'}
-                </p>
-            </div>
-        ) : (
+        <RequestFeedback
+            isError={isError}
+            isLoading={isLoading}
+            className="col-span-2 md:col-span-4"
+        />
+        {!isError &&
+            !isLoading &&
             getColumns(data).map((column, columnIndex) => (
                 <div
                     className="grid w-full gap-2 md:gap-4 h-min"
@@ -47,8 +41,7 @@ export const GifResultsContent = ({
                         </div>
                     ))}
                 </div>
-            ))
-        )}
+            ))}
     </div>
 )
 
