@@ -11,3 +11,7 @@
     font-family: 'Fredoka Medium';
     src: url('./assets/fonts/Fredoka-Medium.ttf');
 }
+
+body {
+    background-color: #121212;
+}

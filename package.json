@@ -14,7 +14,6 @@
         "test:watch": "vitest"
     },
     "dependencies": {
-        "@radix-ui/react-scroll-area": "^1.0.5",
         "@uidotdev/usehooks": "^2.4.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

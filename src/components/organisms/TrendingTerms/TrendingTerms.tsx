@@ -41,7 +41,7 @@ export const TrendingTermsContent = ({
                     : 'Loading...'}
             </p>
         ) : (
-            data?.slice(0, 8).map((term) => (
+            data?.slice(0, 5).map((term) => (
                 <ClickableTag
                     key={term}
                     label={term}

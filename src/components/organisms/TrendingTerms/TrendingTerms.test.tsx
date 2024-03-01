@@ -65,7 +65,7 @@ it('renders with correct elements when data is present, calls `onTermSelect` wit
     expect(
         screen.queryByText(/Sorry, something went wrong/i)
     ).not.toBeInTheDocument()
-    expect(screen.queryAllByRole('button')).toHaveLength(8)
+    expect(screen.queryAllByRole('button')).toHaveLength(5)
 
     await user.click(screen.getByRole('button', { name: testData[0] }))
 
