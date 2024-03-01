@@ -14,7 +14,7 @@ export const TrendingTermsContent = ({
 }: TrendingTermsContentProps) => (
     <div
         data-testid="trending-terms-container"
-        className="flex flex-wrap items-center max-w-full gap-2 "
+        className="flex flex-wrap items-center max-w-full gap-1"
     >
         <svg
             data-testid="trending-terms-icon"
@@ -41,7 +41,7 @@ export const TrendingTermsContent = ({
                     : 'Loading...'}
             </p>
         ) : (
-            data?.slice(0, 8).map((term) => (
+            data?.slice(0, 5).map((term) => (
                 <ClickableTag
                     key={term}
                     label={term}
