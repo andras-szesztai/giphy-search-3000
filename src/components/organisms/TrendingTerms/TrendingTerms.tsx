@@ -5,6 +5,7 @@ import { TrendingTermsContentProps, TrendingTermsProps } from './types'
 import { ClickableTag } from '@/components/atoms/ClickableTag/ClickableTag'
 import { API_KEY_PARAM } from '@/constants/request'
 import { cn } from '@/utils/styles'
+import { RequestFeedback } from '@/components/atoms/RequestFeedback/RequestFeedback'
 
 export const TrendingTermsContent = ({
     data,
@@ -30,17 +31,13 @@ export const TrendingTermsContent = ({
             <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
             <polyline points="16 7 22 7 22 13" />
         </svg>
-        {isError || isLoading ? (
-            <p
-                className={cn('font-light text-picton-blue-500', {
-                    'text-carnation-400': isError,
-                })}
-            >
-                {isError
-                    ? 'Sorry, something went wrong while trying to fetch trending terms'
-                    : 'Loading...'}
-            </p>
-        ) : (
+        <RequestFeedback
+            isError={isError}
+            isLoading={isLoading}
+            className="inline w-min"
+        />
+        {!isError &&
+            !isLoading &&
             data?.slice(0, 5).map((term) => (
                 <ClickableTag
                     key={term}
@@ -49,8 +46,7 @@ export const TrendingTermsContent = ({
                         onTermSelect(term)
                     }}
                 />
-            ))
-        )}
+            ))}
     </div>
 )
 
