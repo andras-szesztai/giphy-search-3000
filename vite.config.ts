@@ -20,4 +20,14 @@ export default defineConfig({
         include: ['./src/**/*.test.ts', './src/**/*.test.tsx'],
         css: false,
     },
+    preview: {
+        port: 3000,
+        strictPort: true,
+    },
+    server: {
+        port: 3000,
+        strictPort: true,
+        host: true,
+        origin: 'http://0.0.0.0:3000',
+    },
 })

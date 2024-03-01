@@ -1,30 +1,17 @@
-# React + TypeScript + Vite
+# Welcome to Giphy Search 3000
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Prerequisites
 
-Currently, two official plugins are available:
+1. You need to generate an API key from [Giphy Developers Portal](https://developers.giphy.com/), when your key is ready, add it to an `.env` file in the root dir (see example file).
+2. You either need to have `node` (at least 18) or `docker` installed on your machine, please follow instructions described below accordingly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Running the project locally with node
 
-## Expanding the ESLint configuration
+1. Clone this repository to your machine, `cd` into it and run `npm ci`. This will install all packages you need in place to run this project.
+2. When the installation finished successfully, you can run `npm run dev`, which will open the app on port 3000 (you can update that in the `vite.config.ts` file).
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Running the project locally using docker
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone this repository to your machine, `cd` into it.
+2. Make sure you have Docker Desktop running, in your terminal you can run `docker build . -t "giphy-search-3000"` (you can name the image to your liking).
+3. When the composing finished, you can run `docker run -d -p 3000:3000 giphy-search-3000` (you can update port in the `vite.config.ts` file). You can access the running app on port 3000.
