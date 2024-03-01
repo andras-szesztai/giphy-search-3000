@@ -12,7 +12,10 @@ export const GifResultsContent = ({
     isLoading,
     isError,
 }: GifResultsContentProps) => (
-    <div className="grid flex-1 w-full grid-cols-2 gap-2 overflow-y-auto md:gap-4 md:grid-cols-4">
+    <div
+        className="grid flex-1 w-full grid-cols-2 gap-2 overflow-y-auto md:gap-4 md:grid-cols-4"
+        data-testid="gif-results-container"
+    >
         {isLoading || isError ? (
             <div className="flex justify-center w-full col-span-2 md:col-span-4">
                 <p
